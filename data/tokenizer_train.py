@@ -40,12 +40,12 @@ def collect_sample_text(output_path: Path, max_chars: int = 50_000_000):
     )
     sources.append(("fineweb", fw, "text", 0.5))
 
-    print("Loading BookCorpus...")
-    books = load_dataset("bookcorpus", split="train", streaming=True)
+    print("Loading books (pg19)...")
+    # bookcorpus scripts are deprecated; use pg19 (Project Gutenberg books, HF-hosted parquet)
+    books = load_dataset("deepmind/pg19", split="train", streaming=True)
     sources.append(("books", books, "text", 0.3))
 
-    print("Loading Reddit (pushshift sample)...")
-    # OpenWebText is a public Reddit-based dataset, easier to access than raw pushshift
+    print("Loading Reddit/social (OpenWebText)...")
     reddit = load_dataset("Skylion007/openwebtext", split="train", streaming=True)
     sources.append(("reddit", reddit, "text", 0.2))
 

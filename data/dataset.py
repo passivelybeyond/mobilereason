@@ -31,7 +31,7 @@ DATASET_SOURCES = [
     },
     {
         "name": "books",
-        "hf_path": "bookcorpus",
+        "hf_path": "deepmind/pg19",   # Project Gutenberg books, no deprecated script
         "hf_name": None,
         "split": "train",
         "field": "text",
